@@ -1,0 +1,43 @@
+<!-- app/views/reviews/new.html.erb -->
+
+<h1>New Review</h1>
+
+<%= form_with(model: [@restaurant, @review], local: true) do |form| %>
+  <% if @review.errors.any? %>
+    <div id="error_explanation">
+    <%= link_to 'Back', restaurant_path(@restaurant) %>
+      <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+      <ul>
+        <% @review.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :rating %>
+    <%= form.number_field :rating %>
+  </div>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_area :content %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', restaurant_path(@restaurant) %>
+
+
+<!-- app/views/reviews/new.html.erb -->
+
+<h1>New Review</h1>
+
+<%= form_with(model: [@restaurant, @review], local: true) do |form| %>
+  <!-- Your review form fields go here -->
+<% end %>
